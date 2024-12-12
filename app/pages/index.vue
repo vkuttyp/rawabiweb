@@ -1,0 +1,103 @@
+<template>
+    <main>
+      <!-- <pre>{{ $auth.session.value }}</pre> -->
+       
+        <section class="bg-[#f1f1f1]">
+      <div class="container flex flex-col lg:flex-row items-center py-20 gap-10">
+        <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
+          <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 text-balance">
+            Master the Kitchen with Ease: Unleash Your Inner Chef Today!
+          </h1>
+          <p class="text-xl lg:text-2xl mb-8 text-balance">
+            Discover recipes helping you to find the easiest way to cook.
+          </p>
+          <button
+            class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-lg cursor-pointer"
+          >
+            Browse Recipes
+          </button>
+        </div>
+        <div class="flex-1 order-1 lg:order-2">
+          <NuxtImg
+            sizes="xs:100vw sm:667px"
+            src="/nuxt-course-hero.png"
+            format="webp"
+            densities="x1"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <section>
+      <!-- <LoginForm :loading="loading" @submit="login" title="Sign in"/>
+      <pre>{{ user }}</pre> -->
+    </section>
+    <section class="py-20 container">
+      <h2 class="text-3xl lg:text-5xl mb-2">Discover, Create, Share</h2>
+      <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
+      <div v-if="!error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+        <RecipeCard v-for="recipe in data.recipes" :recipe="recipe" />
+      </div>
+      <p v-else class="text-xl">Opps, something went wrong. Please try again later</p>
+    </section>
+    </main>
+</template>
+
+<script setup lang="ts">
+// definePageMeta({
+//     layout: 'login'
+// })
+
+import { useAPI } from "../composables/useAPI"
+import { RecipeResponse } from "../../types/types";
+import { useAuthStore } from "../stores/auth";
+const { data, error } = await useFetch<RecipeResponse>('https://dummyjson.com/recipes?limit=12');
+const authStore=useAuthStore();
+const loading = ref(false);
+const router = useRouter();
+const { $api } = useNuxtApp();
+const user=ref({name: 'kutty'})
+const login = async (body) => {
+
+ const data=await $fetch("/api/users/1");
+  user.value=data || [];
+  // loading.value = true;
+
+  // const { data } = await useAsyncData(() => $api('http://localhost:5200/user/hello'))
+  // const { data, error } = await useAPI('http://localhost:5200/user/hello')
+  // loading.value=false;
+  // console.log(data)
+  // console.log(error);
+  // // await authStore.login('kutty', '111')
+  // const { data, error}=await useFetch('http://localhost:5200/user/login',{
+  //   method: 'post',
+  //   body
+  // })  
+  // loading.value = false;  
+  // if(error && error.value){
+  //   console.log(error.value);
+  // }
+  // else {
+  //   console.log(data.value)
+  //   const token=useCookie('token');
+  //   token.value=data.value.jwtToken;
+    
+  //   router.push({name: 'about'})
+    
+  // }
+};
+
+useSeoMeta({
+  title: "Nuxtcipes",
+  description: "Recipes for you to cook!",
+  ogTitle: "Nuxtcipes",
+  ogDescription: "Recipes for you to cook!",
+  ogImage: "/nuxt-course-hero.png",
+  ogUrl: `http:localhost:5200`,
+  twitterTitle: "Nuxtcipes",
+  twitterDescription: "Recipes for you to cook!",
+  twitterImage: "/nuxt-course-hero.png",
+  twitterCard: "summary",
+});
+</script>
+
