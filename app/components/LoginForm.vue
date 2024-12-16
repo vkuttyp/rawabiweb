@@ -1,7 +1,7 @@
 <template>
   <div>
-    <UModal prevent-close title="Modal prevent close">
-    <UButton label="Open" color="neutral" variant="subtle" />
+    <UModal prevent-close title="LOGIN">
+    <UButton label="Login" color="neutral" variant="subtle" />
 
     <template #body>
       <UContainer :ui="{ constrained: 'max-w-xl' }">
@@ -14,7 +14,7 @@
               <div class="flex">
                 <UIcon
                   class="w-12 h-12 mr-2 bg-primary"
-                  name="i-heroicons-user"
+                  name="i-lucide-user"
                 />
                 <div>
                   <p class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
@@ -26,41 +26,32 @@
                 </div>
               </div>
             </template>
-
-            <UFormGroup
-              label="User Name"
-              name="userName"
-              class="mb-3"
-              required
-            >
-              <UInput
-                v-model="loginForm.userName"
-                placeholder="User Name"
-                icon="i-heroicons-envelope"
-              />
-            </UFormGroup>
-            <UFormGroup
-              label="Password"
-              name="password"
-              required
-            >
-              <UInput
-                v-model="loginForm.password"
-                placeholder="password"
-                icon="i-heroicons-lock-closed"
-                :type="hidden ? 'password' : 'text'"
-                :ui="{ icon: { trailing: { pointer: '' } } }"
-              >
-                <template #trailing>
-                  <UButton
-                    :icon="hidden ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'"
-                    variant="link"
-                    :padded="false"
-                    @click="hidden = !hidden"
-                  />
-                </template>
-              </UInput>
-            </UFormGroup>
+            <UFormField label="User Name" required>
+    <UInput v-model="loginForm.userName" icon="i-lucide-user" placeholder="Enter your User Name"/>
+    </UFormField>
+  
+    <UFormField label="Password" required>
+      <UInput
+    v-model="loginForm.password"
+    placeholder="Password"
+    :type="show ? 'text' : 'password'"
+    :ui="{ trailing: 'pe-1' }"
+  >
+    <template #trailing>
+      <UButton
+        color="neutral"
+        variant="link"
+        size="sm"
+        :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+        aria-label="show ? 'Hide password' : 'Show password'"
+        :aria-pressed="show"
+        aria-controls="password"
+        @click="show = !show"
+      />
+    </template>
+  </UInput>
+    </UFormField>
+           
 
             <template #footer>
               <UButton
@@ -84,26 +75,14 @@
 useHead({
   title: 'Login Page',
 })
-const tabs = [
-  {
-    label: 'Log In',
-    slot: 'login',
-  },
-  // {
-  //   label: 'Register',
-  //   slot: 'register',
-  // },
-]
+
 
 const loginForm = ref({
   userName: '',
   password: '',
 })
-const registerForm = ref({
-  email: 'arash@gmail.com',
-  password: 'password',
-})
-const hidden = ref(true)
+
+const show = ref(false)
 
 const toast = useToast()
 

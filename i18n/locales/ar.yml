@@ -1,0 +1,26 @@
+# Main menu items texts
+homeLink: 'الصفحة الرئيسية'
+artistLink: 'الممثلين'
+galleryLink: 'جالري'
+# global
+siteTopTitle: "صفحة الممثل"
+# home page
+homeMetaTitle: "Artist's gallery"
+homeMetaDescription: 'Personal gallery'
+homeTopTitle: 'عنوان الصفحة الرئيسية'
+homeIntroText: 'نص الصفحة الرييسية'
+# artist page
+artistMetaTitle: 'Artist name'
+artistMetaDescription: 'Biography'
+artistTopTitle: 'Artist top title'
+artistIntroText: 'Artist text'
+# gallery page
+galleryMetaTitle: 'Gallery of artwork'
+galleryMetaDescription: 'List or paintings'
+galleryTopTitle: 'Gallery top title'
+galleryIntroText: 'Gallery text'
+# error
+errorPageMessage: 'Page not found'
+backToHomePage: 'Back to home page'
+errorGalleryMessage: 'Not found'
+backToGallery: 'Back to gallery'

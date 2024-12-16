@@ -6,10 +6,10 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink
+  <MyLink
     :to="to"
     class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-lg cursor-pointer"
   >
     <slot>{{ label }}</slot>
-  </NuxtLink>
+  </MyLink>
 </template>

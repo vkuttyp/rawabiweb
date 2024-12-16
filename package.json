@@ -13,13 +13,15 @@
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.16",
+    "@nuxt/content": "^3.0.0-alpha.8",
     "@nuxt/icon": "^1.10.1",
     "@nuxt/image": "^1.8.1",
     "@nuxt/ui": "3.0.0-alpha.9",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/i18n": "^9.0.0-rc.2",
     "@pinia/nuxt": "^0.9.0",
     "nuxt": "^3.14.1592",
-    "pinia": "^2.3.0"    
+    "pinia": "^2.3.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import BaseBtn from './BaseBtn.vue'
 import { type Recipe} from "../../types/types";
 
 defineProps<{

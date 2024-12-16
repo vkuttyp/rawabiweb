@@ -19,8 +19,34 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@pinia/nuxt",
-    
+    "@nuxtjs/i18n",
+    "@nuxt/content"
   ],
+  i18n: {
+    // Module Options
+    lazy: true,
+    langDir: 'locales',
+
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        dir: "ltr",
+        name: 'English',
+        file: 'en.yml'
+      },
+      {
+        code: 'ar',
+        iso: 'ar',
+        dir: "rtl",
+        name: 'Arabic',
+        file: 'ar.yml'
+      }
+      
+    ],
+    defaultLocale: 'en'
+  },
   image: {
     domains: ["https://rawabialqimma.com"],
   },

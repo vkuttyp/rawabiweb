@@ -2,7 +2,7 @@
     <div>
        <!-- <BaseNavigation /> -->
         <Navbar />
-        <Hero />
+      
      <slot />
      <!-- <Footer /> -->
     </div>

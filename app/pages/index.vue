@@ -1,7 +1,9 @@
 <template>
     <main>
       <!-- <pre>{{ $auth.session.value }}</pre> -->
-       
+       <section>
+        <Hero />
+       </section>
         <section class="bg-[#f1f1f1]">
       <div class="container flex flex-col lg:flex-row items-center py-20 gap-10">
         <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
