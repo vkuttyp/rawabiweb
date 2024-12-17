@@ -9,6 +9,15 @@ export default defineNuxtConfig({
       apiBase: 'http://localhost:5200'
     }
   },
+  content: {
+    studio: {
+      enabled: true
+    },
+    database: {
+      type: 'postgres',
+      url: process.env.POSTGRES_URL || ''
+    }
+  },
   extends: [
     './auth',
   ],

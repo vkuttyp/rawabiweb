@@ -28,15 +28,25 @@
       </div>
     </div>
     <!--Lower navbar -->
+    
     <div class="flex justify-center">
+      <div class="px-4">
+        <UButtonGroup>
+          <UButton
+            v-for="menu of menuItems"
+            :key="menu.id"
+            :label="`${menu.name}`"
+            color="neutral"
+            :variant="menu.id === selectedMenu?.id ? 'solid' : 'outline'"
+            class="px-4"
+            :to="localePath(menu.to)"
+            @click="selectedMenu=menu"
+          />
+        </UButtonGroup>
+      </div>
+      
       <ul class="flex items-center gap-4">
-        <li v-for="menu in menuItems" :key="menu.id">
-          <MyLink
-            class="inline-block px-4 hover:text-primary duration:200"
-            :to="menu.to"
-            >{{ menu.name }}</MyLink
-          >
-        </li>
+        
         <li class="group relative cursor-pointer">
           <MyLink to="/" class="flex items-center gap-[2px] py-2">
             Trending items
@@ -68,6 +78,13 @@
 </template>
 
 <script setup lang="ts">
+const localePath = useLocalePath()
+const selectedMenu=ref();
+// function navigateTo((path:string) {
+//   return localePath(path);
+// } , {
+//   watch: [localePath],
+// });
 
 const menuItems = ref([
   {
@@ -85,6 +102,11 @@ const menuItems = ref([
     name: "Products",
     to: "/products",
   },
+  {
+    id: 4,
+    name: "New",
+    to: "/blogs",
+  },
 ]);
 const dropDownLinks = ref([
   {
@@ -95,12 +117,12 @@ const dropDownLinks = ref([
   {
     id: 2,
     name: "Best selling",
-    to: "/about",
+    to: "/about"
   },
   {
     id: 3,
     name: "Top rated",
-    to: "/",
+    to: "/blogs"
   },
 ]);
 </script>

@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <UContainer>
        <!-- <BaseNavigation /> -->
         <Navbar />
       
      <slot />
      <!-- <Footer /> -->
-    </div>
+    </UContainer>
 </template>
 
 <script setup lang="ts">

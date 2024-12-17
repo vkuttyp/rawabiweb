@@ -1,5 +1,5 @@
 <template>
-  <UApp :locale="locales[locale]">
+  <UApp>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
