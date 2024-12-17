@@ -29,7 +29,8 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@pinia/nuxt",
     "@nuxtjs/i18n",
-    "@nuxt/content"
+    "@nuxt/content",
+    "@nuxthq/studio"
   ],
   i18n: {
     // Module Options
